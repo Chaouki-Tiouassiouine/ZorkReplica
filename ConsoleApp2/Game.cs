@@ -12,14 +12,9 @@ namespace ConsoleApp2
         public static void StartGame()
         {
             Initiliaze();
-
             Start();
-
             End();
-
         }
-
- 
 
         private static void End()
         {
@@ -57,9 +52,14 @@ namespace ConsoleApp2
 
         private static void UseMethod()
         {
-           
-            
-
+            do
+            {
+                string str = Console.ReadLine();
+                if (str == "help")
+                Console.Write("Wat is er aan de hand? ");
+                    break;
+            }
+            while (true);
         }
 
         private static void Initiliaze()
@@ -99,9 +99,6 @@ namespace ConsoleApp2
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-
-
-
         }
     }
 }

@@ -7,16 +7,15 @@ namespace ConsoleApp2
         public static void StartAmsterdam()
         {
             Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Welkom op het Leidse! leuk spelletje tussendoor, geef een getal onder de tien");
+            Console.WriteLine("Welkom op het Leidse! leuk spelletje tussendoor, geef een getal onder de vijf");
+            Console.BackgroundColor = ConsoleColor.White;
 
             string number; 
             number = Console.ReadLine();
             int inputNumber = int.Parse(number);
      
-
             Random random = new Random();
-            int randomNumber = random.Next(0, 10);
+            int randomNumber = random.Next(0, 5);
 
             if (inputNumber == randomNumber)
             {
