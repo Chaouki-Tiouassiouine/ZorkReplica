@@ -27,7 +27,7 @@ namespace ConsoleApp2
             _name = Console.ReadLine();
             //if (!Regex.IsMatch(_name, @"\w{1-35}"))
             //    throw new ArgumentException("Dat is niet je echte naam...");
-            Console.WriteLine("welke stad wil je heen? Amsterdam of Utrecht?");
+            Console.WriteLine("welke stad zullen we als eerst heen? Amsterdam of Utrecht?");
             _street = Console.ReadLine();
             Console.WriteLine("wat is je pacelevel op basis van 1 tot 10?");
             _level = int.Parse(Console.ReadLine());
@@ -46,29 +46,37 @@ namespace ConsoleApp2
             }
 
             UseMethod();
-
         }
 
         private static void UseMethod()
         {
 
+            //ik wil nog de locaties tonen waar men nog niet is geweest en dat ze daaruit kunnen kiezen, als ze overal zijn geweest moeten ze gewoon naar huis
             string str = Console.ReadLine();
             if (str == "help")
  
             if (_level > 0 && _level <= 5)
             {
-                Console.WriteLine("Zo dronken ben je niet.. waar wil je heen?");
+                Console.WriteLine($"{_name} zo dronken ben je niet.. waar wil je heen?");
             }
 
             if (_level > 5 && _level <= 7)
             {
-                Console.WriteLine("Doe rustig aan met de drank.. waar wil je heen?");
+                Console.WriteLine($"Doe rustig aan met de drank {_name}.. waar wil je heen?");
             }
 
             if (_level > 7 && _level <= 10)
             {
-                Console.WriteLine("You are wasted.. waar wil je heen? ");
-            }             
+                Console.WriteLine($"You are wasted, {_name}.. we kunnen naar huis of naar (resterende steden)? ");
+            }
+
+            string direction;
+            direction = Console.ReadLine();
+
+            if (direction == null)
+            {
+                Console.WriteLine("Tijd om naar huis te gaan, we zijn overal geweest!");
+            }
         }
 
         private static void Initiliaze()

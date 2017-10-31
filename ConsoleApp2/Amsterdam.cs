@@ -20,15 +20,15 @@ namespace ConsoleApp2
             if (inputNumber == randomNumber)
             {
                 Console.WriteLine("Nice! een drankje op mijn kosten");
-                Game._level ++;
-                Utrecht.StartUtrecht();             
+                Game._level ++;            
             }
 
             else
             {
-                Console.WriteLine("Fout.. doei");
+                Console.WriteLine("Fout.. jij betaalt!");
             }
 
+            Console.WriteLine("waar wil je heen Utrecht, Arnhem of Nijmegen?");
         }
     }
 }
