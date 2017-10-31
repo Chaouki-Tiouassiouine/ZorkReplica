@@ -4,7 +4,6 @@ namespace ConsoleApp2
 {
     public class Game
     {
-
         private static string _name;
         private static string _street;
         public static int _level { get; set; }
@@ -52,14 +51,24 @@ namespace ConsoleApp2
 
         private static void UseMethod()
         {
-            do
+
+            string str = Console.ReadLine();
+            if (str == "help")
+ 
+            if (_level > 0 && _level <= 5)
             {
-                string str = Console.ReadLine();
-                if (str == "help")
-                Console.Write("Wat is er aan de hand? ");
-                    break;
+                Console.WriteLine("Zo dronken ben je niet.. waar wil je heen?");
             }
-            while (true);
+
+            if (_level > 5 && _level <= 7)
+            {
+                Console.WriteLine("Doe rustig aan met de drank.. waar wil je heen?");
+            }
+
+            if (_level > 7 && _level <= 10)
+            {
+                Console.WriteLine("You are wasted.. waar wil je heen? ");
+            }             
         }
 
         private static void Initiliaze()
@@ -75,9 +84,9 @@ namespace ConsoleApp2
                 Console.WriteLine(@"       
 
 
-.   *   ..  . *  *
-       *  * @()Ooc()*   o  .
-           (Q@*0CG*O()  ___
+        .   *   ..  . *  *
+       *  * @()OoO()*   o  .
+           (()*0O0*O()  ___
           |\_________/|/ _ \
           |  |  |  |  | / | |
           |  |  |  |  | | | |
@@ -90,7 +99,10 @@ namespace ConsoleApp2
            \_________/
 
 
-        LetsGo, heb wel een aantal gegevens nodig...");
+        LetsGo, heb wel een aantal gegevens nodig...
+
+
+            ");
             }
 
             else
@@ -102,4 +114,3 @@ namespace ConsoleApp2
         }
     }
 }
-

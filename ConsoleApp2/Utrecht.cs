@@ -8,9 +8,9 @@ namespace ConsoleApp2
         {
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.WriteLine("Welkom bij Chupitos!");
-            Console.BackgroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
 
-            Console.WriteLine("Even een vraagje, als je het goed hebt krijg je een level erbij");
+            Console.WriteLine("Even een vraagje, als je het goed hebt krijg je een drankje van mij");
             Console.WriteLine("Hoeveel inwoners heeft Utrecht afgerond, 3x raden!");
 
             string number;
@@ -18,11 +18,14 @@ namespace ConsoleApp2
             int inputNumber = int.Parse(number);
 
             int residentsNumber = 344000;
-            do
+
+            int numberAttempts = 3;
+            while(inputNumber != 344000 && numberAttempts >0)
             {
-                Console.WriteLine("Fout");
-                numberAttempts--;
-            } while (inputNumber != 344000 && numberAttempts != 0);
+                Console.WriteLine($"Fout je mag nog {--numberAttempts} raden");
+                number = Console.ReadLine();
+                inputNumber = int.Parse(number);
+            } 
 
             if (inputNumber == residentsNumber)
             {
