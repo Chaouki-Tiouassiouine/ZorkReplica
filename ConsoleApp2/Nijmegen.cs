@@ -20,7 +20,7 @@ namespace ConsoleApp2
             do
             {
 
-                Console.Clear();// whenever loop will be again start then screen will be clear 
+                Console.Clear();
 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine(@"
@@ -33,7 +33,6 @@ ___________         __
         \/      \/           \/     \/     \/
 -------------------------------------------------
 WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
-
 ");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"{Game._name}: X - Ikke: O");
@@ -78,13 +77,15 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
 
             if (flag == 1)// if flag value is 1 then some one has win or means who played marked last time which has win  
             {
-                Console.WriteLine("Player {0} has won", (player % 2) + 1);
-                Nijmegen.EndNijmegenGame();
+                Console.WriteLine("Top! tijd voor een drankje");
+                Game._level += 3;
+                Nijmegen.EndCurrentGame();
             }
             else// if flag value is -1 the match will be draw and no one is winner  
             {
-                Console.WriteLine("Draw");
-                Nijmegen.EndNijmegenGame();
+                Console.WriteLine("Uhmm. zullen we gewoon een drankje gaan halen?");
+                Game._level += 3;
+                Nijmegen.EndCurrentGame();
             }
             Console.ReadLine();
         }
@@ -166,11 +167,9 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
             }
         }
 
-        public static void EndNijmegenGame()
+        public static void EndCurrentGame()
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Waar zullen we nu heen?");
-            Console.ForegroundColor = ConsoleColor.White;
             string inputCity = Console.ReadLine();
 
             switch (inputCity)
@@ -198,8 +197,9 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
 
                 default:
                     Console.WriteLine("Heb je niet goed verstaan..");
-                    EndNijmegenGame();
+                    Nijmegen.EndCurrentGame();
                     break;
+                    
             }
         }
     }

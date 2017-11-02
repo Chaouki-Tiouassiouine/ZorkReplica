@@ -8,7 +8,8 @@ namespace ConsoleApp2
     {
         public static void StartArnhem()
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine(@"
 
 
@@ -24,10 +25,8 @@ namespace ConsoleApp2
 
 );
             Console.WriteLine("we zijn in club Loft in het beruchte Arnhem, je kan een drankje verdienen");
-            Console.WriteLine("we gaan galgje spelen, raad het woord, 10 kansen heb je" +
-                "" +
-                "" +
-                "");
+            Console.WriteLine("we gaan galgje spelen, raad het woord, 10 kansen heb je");
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
             char[] guessed = new char[26];
@@ -43,6 +42,7 @@ namespace ConsoleApp2
             for (int i = 0; i < 10; i++)
             {
                 Console.Write("Oke, geef een letter op ");
+                Console.WriteLine();
 
                 guess = char.Parse(Console.ReadLine());
                 bool right = false;
@@ -52,6 +52,7 @@ namespace ConsoleApp2
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Yes dat is een letter wat in het woord zit!");
+                        Console.WriteLine();
                         Console.ForegroundColor = ConsoleColor.White;
                         testword[j] = guess;
                         guessed[index] = guess;
@@ -65,6 +66,7 @@ namespace ConsoleApp2
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Nope, zit er niet in");
+                    Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.White;
                     score++;
                 }
@@ -84,6 +86,14 @@ namespace ConsoleApp2
                     Console.WriteLine("Kijk kijk! je hebt het woord geraden, je krijgt een drankje van mij!");
                     Console.ForegroundColor = ConsoleColor.White;
                     Game._level += 2;
+
+                    if (Game._level >= 8)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Was gezellig! Maar je moet naar huis, je bent te dronken");
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                    }
                     break;
                 }
 
@@ -120,42 +130,20 @@ Jammer maar helaas, een shotje op jouw kosten
 ");
                     Console.ForegroundColor = ConsoleColor.White;
                     Game._level += 2;
+
+                    if (Game._level >= 8)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Was gezellig! Maar je moet naar huis, je bent te dronken");
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                    }
                     break;
                 }
             }
 
-
-            Console.WriteLine("dit was Arnhem, waar zullen we nu heen?");
-            string inputCity = Console.ReadLine();
-
-            switch (inputCity)
-            {
-
-                case "Amsterdam":
-                    Amsterdam.StartAmsterdam();
-                    break;
-
-                case "Utrecht":
-                    Utrecht.StartUtrecht();
-                    break;
-
-                case "Nijmegen":
-                    Nijmegen.StartNijmegen();
-                    break;
-
-                case "Arnhem":
-                    Arnhem.StartArnhem();
-                    break;
-
-                case"help":
-                    Game.UseMethod();
-                    break;
-                                       
-                default:
-                    Console.WriteLine("Heb je niet goed verstaan..");
-                    break;
-
-            }
+            Console.WriteLine("dit was club Loft in Arnhem, voor herhaling vatbaar toch?");
+            Nijmegen.EndCurrentGame();
         }
     }
 }

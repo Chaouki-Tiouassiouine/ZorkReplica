@@ -7,7 +7,8 @@ namespace ConsoleApp2
     {
         public static void StartUtrecht()
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine(@"
 
 __________________  ___________   _____      _____   
@@ -21,7 +22,7 @@ __________________  ___________   _____      _____
 ");
             Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine($"Welkom {Game._name} bij Poema!");
+            Console.WriteLine($"Welkom {Game._name}, bij Poema!");
             Console.WriteLine();
             Console.WriteLine($"Even een vraagje, als je het goed hebt krijg je een drankje van mij");
             Console.WriteLine("Hoeveel inwoners heeft Utrecht afgerond, 3x raden!");
@@ -35,7 +36,10 @@ __________________  ___________   _____      _____
             int numberAttempts = 3;
             while (inputNumber != 344000 && numberAttempts > 1)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Fout je mag nog {--numberAttempts}x raden");
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.White;
                 number = Console.ReadLine();
                 inputNumber = int.Parse(number);
             }
@@ -43,7 +47,9 @@ __________________  ___________   _____      _____
             if (inputNumber != 344000 && numberAttempts == 1)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Wat slecht.. voor straf moet je 2 shotjes nemen");
+                Console.WriteLine();
+                Console.WriteLine("Jammer joh.. voor straf moet je 2 shotjes nemen");
+                Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
                 Game._level += 2;
             }
@@ -51,13 +57,15 @@ __________________  ___________   _____      _____
             if (inputNumber == residentsNumber)
             {
                 Console.WriteLine("Nice! Wacht even ik ga een shotje en een drankje op mijn kosten halen! ");
-                Thread.Sleep(2000);
+                Console.WriteLine();
+                Thread.Sleep(5000);
                 Game._level+= 2;
             }
 
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine();
             Console.WriteLine("Hoppa! Gaat het nog een beetje? Waar zullen we nu heen?");
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             string inputCity = Console.ReadLine();
 

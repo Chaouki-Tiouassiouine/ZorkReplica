@@ -19,7 +19,8 @@ namespace ConsoleApp2
             if (Game._level >= 8)
             {
                 Console.WriteLine();
-                Console.WriteLine("Was gezellig!");
+                Console.WriteLine("Was gezellig! Maar je moet naar huis, je bent te dronken");
+                Environment.Exit(0);
             }
 
             else
@@ -39,64 +40,7 @@ namespace ConsoleApp2
             //    throw new ArgumentException("Dat is niet je echte naam...");
             Console.WriteLine("welke stad zullen we als eerst heen? Amsterdam, Utrecht, Nijmegen of Arnhem?");
             Console.WriteLine();
-
             string inputCity = Console.ReadLine();
-
-            switch (inputCity)
-            {
-
-                case "Amsterdam":
-                    Amsterdam.StartAmsterdam();
-                    break;
-
-                case "Utrecht":
-                    Utrecht.StartUtrecht();
-                    break;
-
-                case "Nijmegen":
-                    Nijmegen.StartNijmegen();
-                    break;
-
-                case "Arnhem":
-                    Arnhem.StartArnhem();
-                    break;
-
-                default:
-                    Console.WriteLine("Heb je niet goed verstaan..");
-                    break;
-            }
-        }
-
-        public static void UseMethod()
-        {
-
-            string inputCity;
-
-            if (_level > 0 && _level <= 5)
-            {
-                Console.WriteLine($"{_name} zo dronken ben je niet.. zeg maar waar je heen wil?");
-                Console.WriteLine("We kunnen naar Arnhem, Nijmegen, Utrecht of Amsterdam.");
-                inputCity = Console.ReadLine();
-            }
-
-            if (_level > 5 && _level <= 7)
-            {
-                Console.WriteLine($"Doe rustig aan met de drank {_name}.. zeg maar waar je heen wil?");
-                inputCity = Console.ReadLine();
-            }
-
-            if (_level > 7 && _level <= 10)
-            {
-                Console.WriteLine($"You are wasted, {_name}.. we kunnen naar huis.." +
-                    $" ");
-                inputCity = Console.ReadLine();
-            }
-
-            else
-            {
-
-                inputCity = Console.ReadLine();
-            }
 
             switch (inputCity)
             {
@@ -123,37 +67,66 @@ namespace ConsoleApp2
 
                 default:
                     Console.WriteLine("Heb je niet goed verstaan..");
+                    Nijmegen.EndCurrentGame();
                     break;
 
             }
         }
 
+        public static void UseMethod()
+        {
+            if (_level > 0 && _level <= 3)
+            {
+                Console.WriteLine($"{_name} zo dronken ben je niet.. zeg maar waar je heen wil?");
+                Console.WriteLine("We kunnen naar Arnhem, Nijmegen, Utrecht of Amsterdam.");
+                Nijmegen.EndCurrentGame();
+            }
+
+            if (_level > 3 && _level <= 7)
+            {
+                Console.WriteLine($"Doe rustig aan met de drank {_name}.. zeg maar waar je heen wil?");
+                Nijmegen.EndCurrentGame();
+            }
+
+            if (_level > 7 && _level <= 10)
+            {
+                Console.WriteLine($"You are wasted, {_name}.. Je moet naar huis..");
+                Console.WriteLine(@"
+    _____
+   /.---.\
+   |`````|
+   \     /
+    `-.-'           ____
+      |    /\     .'   /\
+    __|__  |K----;    |  |
+   `-----` \/     '.___\/");
+
+
+                Console.ReadKey(); 
+                Environment.Exit(0);
+            }
+        }
+
             private static void Initiliaze()
             {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine(@"
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine(@"
+    -----------------------------------------------------
+                    .__                               
+    __  _  __ ____ |  |   ____  ____   _____   ____  
+    \ \/ \/ // __ \|  | _/ ___\/  _ \ /     \_/ __ \ 
+     \     /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/ 
+      \/\_/  \___  >____/\___  >____/|__|_|  /\___  >
+                 \/          \/            \/     \/ 
 
+    ------------------------------------------------------
+                    ");
 
------------------------------------------------------
-               .__                               
-__  _  __ ____ |  |   ____  ____   _____   ____  
-\ \/ \/ // __ \|  | _/ ___\/  _ \ /     \_/ __ \ 
- \     /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/ 
-  \/\_/  \___  >____/\___  >____/|__|_|  /\___  >
-             \/          \/            \/     \/ 
-
-------------------------------------------------------
-
-
-
-");
             Console.ForegroundColor = ConsoleColor.White;
-
             Console.WriteLine(@"Hi! het is " + DateTime.Now + " mooi tijdstip om een drankje te doen? ");
             Console.WriteLine();
             Console.WriteLine("We hebben een uur te tijd, ga je mee? yes or no?");
             Console.WriteLine();
-
             string answer;
             answer = Console.ReadLine();
 
@@ -161,27 +134,27 @@ __  _  __ ____ |  |   ____  ____   _____   ____
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(@"       
-___________                                
-\__    ___/___ ______ ______   ___________ 
-  |    | /  _ \\____ \\____ \_/ __ \_  __ \
-  |    |(  <_> )  |_> >  |_> >  ___/|  | \/
-  |____| \____/|   __/|   __/ \___  >__|
-               |__|   |__|        \/   
-.   *   ..  . *  *
-       *  * @()OoO()*   o  .
-           (()*0O0*O()  ___
-          |\_________/|/ _ \
-          |  |  |  |  | / | |
-          |  |  |  |  | | | |
-          |  |  |  |  | | | |
-          |  |  |  |  | | | |
-          |  |  |  |  | | | |
-          |  |  |  |  | \_| |
-          |  |  |  |  |\___/  
-          |\_|__|__|_/|
-           \_________/
+                ___________                                
+                \__    ___/___ ______ ______   ___________ 
+                  |    | /  _ \\____ \\____ \_/ __ \_  __ \
+                  |    |(  <_> )  |_> >  |_> >  ___/|  | \/
+                  |____| \____/|   __/|   __/ \___  >__|
+                               |__|   |__|        \/   
+                .   *   ..  . *  *
+                       *  * @()OoO()*   o  .
+                           (()*0O0*O()  ___
+                          |\_________/|/ _ \
+                          |  |  |  |  | / | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | \_| |
+                          |  |  |  |  |\___/  
+                          |\_|__|__|_/|
+                           \_________/
    
-            ");
+                ");
 
                 Console.ForegroundColor = ConsoleColor.White;
             }
