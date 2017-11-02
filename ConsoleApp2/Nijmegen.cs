@@ -7,5 +7,9 @@ namespace ConsoleApp2
     //Blackjack game include
     class Nijmegen
     {
+        public static void StartNijmegen()
+        {
+         
+        }
     }
 }
