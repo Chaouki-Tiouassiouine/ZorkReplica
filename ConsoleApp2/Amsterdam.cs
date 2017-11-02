@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ConsoleApp2
 {
@@ -46,9 +47,10 @@ __________     ___.  ___.          .__
             if (numberAttempts == 1)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Jammer, maar helaas, voor straf moet je 2 shotjes nemen");
+                Console.WriteLine("Jammer, maar helaas. Zal alsnog twee shotjes halen");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
+                Thread.Sleep(3000);
                 Game._level += 2;
 
                 if (Game._level >= 8)
@@ -65,6 +67,7 @@ __________     ___.  ___.          .__
                 Console.WriteLine("Nice! een shotje en een drankje op mijn kosten");
                 Console.ForegroundColor = ConsoleColor.White;
                 Game._level += 2;
+                Thread.Sleep(3000);
 
                 if (Game._level >= 8)
                 {
@@ -74,6 +77,8 @@ __________     ___.  ___.          .__
                 }
             }
 
+            Console.WriteLine("Dit was Amsterdam!");
+            Console.WriteLine();
             Nijmegen.EndCurrentGame();
             
         }

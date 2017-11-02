@@ -169,7 +169,20 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
 
         public static void EndCurrentGame()
         {
+            Console.WriteLine();
             Console.WriteLine("Waar zullen we nu heen?");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine(@"
+  ___
+    _-_-  _/\______\\__
+ _-_-__  / ,-. -|-  ,-.`-.
+    _-_- `( o )----( o )-'
+           `-'      `-'
+
+");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine();
             string inputCity = Console.ReadLine();
 
             switch (inputCity)

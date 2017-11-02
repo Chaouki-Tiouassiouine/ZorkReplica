@@ -142,6 +142,7 @@ Jammer maar helaas, een shotje op jouw kosten
                 }
             }
 
+            Console.WriteLine();
             Console.WriteLine("dit was club Loft in Arnhem, voor herhaling vatbaar toch?");
             Nijmegen.EndCurrentGame();
         }

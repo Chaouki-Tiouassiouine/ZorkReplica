@@ -77,14 +77,15 @@ namespace ConsoleApp2
         {
             if (_level > 0 && _level <= 3)
             {
-                Console.WriteLine($"{_name} zo dronken ben je niet.. zeg maar waar je heen wil?");
+                Console.WriteLine($"{_name} zo dronken ben je niet.. we kunnen naar de volgende plekken");
                 Console.WriteLine("We kunnen naar Arnhem, Nijmegen, Utrecht of Amsterdam.");
                 Nijmegen.EndCurrentGame();
             }
 
             if (_level > 3 && _level <= 7)
             {
-                Console.WriteLine($"Doe rustig aan met de drank {_name}.. zeg maar waar je heen wil?");
+                Console.WriteLine($"Doe rustig aan met de drank {_name}.. ");
+                Console.WriteLine("We kunnen naar Arnhem, Nijmegen, Utrecht of Amsterdam.");
                 Nijmegen.EndCurrentGame();
             }
 
