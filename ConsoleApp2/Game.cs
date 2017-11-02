@@ -96,7 +96,7 @@ namespace ConsoleApp2
 
         private static void Initiliaze()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(@"
 
 
@@ -127,9 +127,13 @@ __  _  __ ____ |  |   ____  ____   _____   ____
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(@"       
-
-
-        .   *   ..  . *  *
+___________                                
+\__    ___/___ ______ ______   ___________ 
+  |    | /  _ \\____ \\____ \_/ __ \_  __ \
+  |    |(  <_> )  |_> >  |_> >  ___/|  | \/
+  |____| \____/|   __/|   __/ \___  >__|
+               |__|   |__|        \/   
+.   *   ..  . *  *
        *  * @()OoO()*   o  .
            (()*0O0*O()  ___
           |\_________/|/ _ \
@@ -142,16 +146,7 @@ __  _  __ ____ |  |   ____  ____   _____   ____
           |  |  |  |  |\___/  
           |\_|__|__|_/|
            \_________/
-
-
-___________                                
-\__    ___/___ ______ ______   ___________ 
-  |    | /  _ \\____ \\____ \_/ __ \_  __ \
-  |    |(  <_> )  |_> >  |_> >  ___/|  | \/
-  |____| \____/|   __/|   __/ \___  >__|   
-               |__|   |__|        \/       
-
-
+   
             ");
 
                 Console.ForegroundColor = ConsoleColor.White;
