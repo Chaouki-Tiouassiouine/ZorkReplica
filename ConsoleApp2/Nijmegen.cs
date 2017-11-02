@@ -24,7 +24,8 @@ namespace ConsoleApp2
 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine(@"
-___________         __                  
+------------------------------------------------
+___________         __                
 \_   _____/__  ____/  |______    ______ ____  
  |    __)_\  \/  /\   __\__  \  /  ___// __ \ 
  |        \>    <  |  |  / __ \_\___ \\  ___/ 
@@ -64,9 +65,9 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
                 }
                 else //If there is any possition where user want to run and that is already marked then show message and load board again  
                 {
-                    Console.WriteLine("Sorry the row {0} is already marked with {1}", choice, arr[choice]);
+                    Console.WriteLine("Uhh,  sorry maar rij {0} is al door {1} ingenomen", choice, arr[choice]);
                     Console.WriteLine("\n");
-                    Console.WriteLine("Please wait 2 second board is loading again.....");
+                    Console.WriteLine("Wacht even ik herschrijf het even.....");
                     Thread.Sleep(2000);
                 }
                 flag = CheckWin();// calling of check win  
@@ -78,10 +79,12 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
             if (flag == 1)// if flag value is 1 then some one has win or means who played marked last time which has win  
             {
                 Console.WriteLine("Player {0} has won", (player % 2) + 1);
+                Nijmegen.EndNijmegenGame();
             }
             else// if flag value is -1 the match will be draw and no one is winner  
             {
                 Console.WriteLine("Draw");
+                Nijmegen.EndNijmegenGame();
             }
             Console.ReadLine();
         }
@@ -103,7 +106,7 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
         //ik kijk telkens of een rij in de Array gelijk is, als dat het geval is return ik standaard speler 1 anders aan het einde speler 0
         private static int CheckWin()
         {
-            #region Horzontal Winning Condtion
+            // hier controleer ik of er gewonnen is in de horizontale rijen 
             //Als de bovenste Row in de Array gelijk is    
             if (arr[1] == arr[2] && arr[2] == arr[3])
             {
@@ -119,9 +122,8 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
             {
                 return 1;
             }
-            #endregion
 
-            #region vertical Winning Condtion
+            //Verticale controle hier
             //Winning Condition For First Column       
             else if (arr[1] == arr[4] && arr[4] == arr[7])
             {
@@ -137,7 +139,7 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
             {
                 return 1;
             }
-            #endregion
+
 
             #region Diagonal Winning Condition
             else if (arr[1] == arr[5] && arr[5] == arr[9])
@@ -160,7 +162,44 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
 
             else
             {
-                return 0;
+                return 0;     
+            }
+        }
+
+        public static void EndNijmegenGame()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Waar zullen we nu heen?");
+            Console.ForegroundColor = ConsoleColor.White;
+            string inputCity = Console.ReadLine();
+
+            switch (inputCity)
+            {
+
+                case "Amsterdam":
+                    Amsterdam.StartAmsterdam();
+                    break;
+
+                case "Utrecht":
+                    Utrecht.StartUtrecht();
+                    break;
+
+                case "Nijmegen":
+                    Nijmegen.StartNijmegen();
+                    break;
+
+                case "Arnhem":
+                    Arnhem.StartArnhem();
+                    break;
+
+                case "help":
+                    Game.UseMethod();
+                    break;
+
+                default:
+                    Console.WriteLine("Heb je niet goed verstaan..");
+                    EndNijmegenGame();
+                    break;
             }
         }
     }

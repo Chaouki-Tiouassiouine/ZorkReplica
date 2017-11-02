@@ -5,7 +5,6 @@ namespace ConsoleApp2
     public class Game
     {
         public static string _name { get; set; }
-        private static string _street;
         public static int _level = 0; //aantal drankjes
 
         public static void StartGame()
@@ -17,8 +16,17 @@ namespace ConsoleApp2
 
         private static void End()
         {
-            Console.WriteLine();
-            Console.WriteLine("Was gezellig!");
+            if (Game._level >= 8)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Was gezellig!");
+            }
+
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Was gezellig!");
+            }
         }
 
         private static void Start()
@@ -26,9 +34,11 @@ namespace ConsoleApp2
             Console.WriteLine("wat is je naam?");
             Console.WriteLine();
             _name = Console.ReadLine();
+            Console.WriteLine();
             //if (!Regex.IsMatch(_name, @"\w{1-35}"))
             //    throw new ArgumentException("Dat is niet je echte naam...");
             Console.WriteLine("welke stad zullen we als eerst heen? Amsterdam, Utrecht, Nijmegen of Arnhem?");
+            Console.WriteLine();
 
             string inputCity = Console.ReadLine();
 
@@ -54,48 +64,72 @@ namespace ConsoleApp2
                 default:
                     Console.WriteLine("Heb je niet goed verstaan..");
                     break;
-
             }
-
         }
 
         public static void UseMethod()
         {
 
-            //ik wil nog de locaties tonen waar men nog niet is geweest en dat ze daaruit kunnen kiezen, als ze overal zijn geweest moeten ze gewoon naar huis
-            string str = Console.ReadLine();
-            if (str == "help")
- 
+            string inputCity;
+
             if (_level > 0 && _level <= 5)
             {
-                Console.WriteLine($"{_name} zo dronken ben je niet.. waar wil je heen?");
-                Console.WriteLine();
-                }
+                Console.WriteLine($"{_name} zo dronken ben je niet.. zeg maar waar je heen wil?");
+                Console.WriteLine("We kunnen naar Arnhem, Nijmegen, Utrecht of Amsterdam.");
+                inputCity = Console.ReadLine();
+            }
 
             if (_level > 5 && _level <= 7)
             {
-                Console.WriteLine($"Doe rustig aan met de drank {_name}.. waar wil je heen?");
-                Console.WriteLine();
+                Console.WriteLine($"Doe rustig aan met de drank {_name}.. zeg maar waar je heen wil?");
+                inputCity = Console.ReadLine();
             }
 
             if (_level > 7 && _level <= 10)
             {
-                Console.WriteLine($"You are wasted, {_name}.. we kunnen naar huis of naar (resterende steden)? ");
-                Console.WriteLine();
+                Console.WriteLine($"You are wasted, {_name}.. we kunnen naar huis.." +
+                    $" ");
+                inputCity = Console.ReadLine();
             }
 
-            string direction;
-            direction = Console.ReadLine();
-
-            if (direction == null)
+            else
             {
-                Console.WriteLine("Tijd om naar huis te gaan, we zijn overal geweest!");
-                Console.WriteLine();
+
+                inputCity = Console.ReadLine();
+            }
+
+            switch (inputCity)
+            {
+
+                case "Amsterdam":
+                    Amsterdam.StartAmsterdam();
+                    break;
+
+                case "Utrecht":
+                    Utrecht.StartUtrecht();
+                    break;
+
+                case "Nijmegen":
+                    Nijmegen.StartNijmegen();
+                    break;
+
+                case "Arnhem":
+                    Arnhem.StartArnhem();
+                    break;
+
+                case "help":
+                    Game.UseMethod();
+                    break;
+
+                default:
+                    Console.WriteLine("Heb je niet goed verstaan..");
+                    break;
+
             }
         }
 
-        private static void Initiliaze()
-        {
+            private static void Initiliaze()
+            {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(@"
 

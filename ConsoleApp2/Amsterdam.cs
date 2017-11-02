@@ -6,8 +6,10 @@ namespace ConsoleApp2
     {
         public static void StartAmsterdam()
         {
-            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(@"
+
+-------------------------------------------------
 __________     ___.  ___.          .__          
 \______   \__ _\_ |__\_ |__   ____ |  |   ______
  |    |  _/  |  \ __ \| __ \_/ __ \|  |  /  ___/
@@ -17,10 +19,9 @@ __________     ___.  ___.          .__
 
 --------------------------------------------------
 
-
 ");
-            Console.WriteLine($"Welkom bij de bubbels {Game._name}!  leuk spelletje tussendoor, raad het getal onder de vijf, je hebt een kans");
-            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine($"Welkom bij de bubbels {Game._name}!  leuk spelletje tussendoor, raad het getal onder de tien, je mag drie keer raden");
+            Console.ForegroundColor = ConsoleColor.White;
 
             string number;
             number = Console.ReadLine();
@@ -29,19 +30,29 @@ __________     ___.  ___.          .__
             Random random = new Random();
             int randomNumber = random.Next(0, 5);
 
+            int numberAttempts = 3;
+            while (inputNumber != randomNumber && numberAttempts > 1)
+            {
+                Console.WriteLine($"Fout je mag nog {--numberAttempts}x raden");
+                number = Console.ReadLine();
+                inputNumber = int.Parse(number);
+            }
+
+            if (numberAttempts == 1)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Wat slecht.. voor straf moet je 2 shotjes nemen");
+                Console.ForegroundColor = ConsoleColor.White;
+                Game._level += 2;
+            }
+
             if (inputNumber == randomNumber)
             {
-                Console.WriteLine("Nice! een drankje op mijn kosten");
-                Game._level++;
+                Console.WriteLine("Nice! een shotje en een drankje op mijn kosten");
+                Game._level += 2;
             }
 
-            else
-            {
-                Console.WriteLine("Fout.. jij betaalt!");
-                Game._level++;
-            }
-
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Waar zullen we nu heen?");
             Console.ForegroundColor = ConsoleColor.White;
             string inputCity = Console.ReadLine();

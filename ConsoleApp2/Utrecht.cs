@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ConsoleApp2
 {
@@ -6,7 +7,7 @@ namespace ConsoleApp2
     {
         public static void StartUtrecht()
         {
-            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(@"
 
 __________________  ___________   _____      _____   
@@ -18,9 +19,9 @@ __________________  ___________   _____      _____
 
 
 ");
-            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine($"Welkom bij Poema {Game._name}");
+            Console.WriteLine($"Welkom {Game._name} bij Poema!");
             Console.WriteLine();
             Console.WriteLine($"Even een vraagje, als je het goed hebt krijg je een drankje van mij");
             Console.WriteLine("Hoeveel inwoners heeft Utrecht afgerond, 3x raden!");
@@ -39,7 +40,7 @@ __________________  ___________   _____      _____
                 inputNumber = int.Parse(number);
             }
 
-            if (numberAttempts == 1)
+            if (inputNumber != 344000 && numberAttempts == 1)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Wat slecht.. voor straf moet je 2 shotjes nemen");
@@ -49,12 +50,13 @@ __________________  ___________   _____      _____
 
             if (inputNumber == residentsNumber)
             {
-                Console.WriteLine("Nice! een shotje en een drankje op mijn kosten");
+                Console.WriteLine("Nice! Wacht even ik ga een shotje en een drankje op mijn kosten halen! ");
+                Thread.Sleep(2000);
                 Game._level+= 2;
-                //Utrecht.StartUtrecht();
             }
 
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine();
             Console.WriteLine("Hoppa! Gaat het nog een beetje? Waar zullen we nu heen?");
             Console.ForegroundColor = ConsoleColor.White;
             string inputCity = Console.ReadLine();

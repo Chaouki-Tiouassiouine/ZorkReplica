@@ -8,20 +8,18 @@ namespace ConsoleApp2
     {
         public static void StartArnhem()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(@"
 
 
 
 --------------------------------
-
 .____           _____  __   
 |    |    _____/ ____\/  |_ 
 |    |   /  _ \   __\\   __\
 |    |__(  <_> )  |   |  |  
 |_______ \____/|__|   |__|  
         \/
-
 --------------------------------"
 
 );
@@ -82,7 +80,9 @@ namespace ConsoleApp2
                 string inputWord = new string(testword);
                 if (guessedWord == inputWord && score >= 8)
                 {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine("Kijk kijk! je hebt het woord geraden, je krijgt een drankje van mij!");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Game._level += 2;
                     break;
                 }
