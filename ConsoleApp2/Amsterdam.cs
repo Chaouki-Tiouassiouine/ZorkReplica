@@ -77,7 +77,18 @@ __________     ___.  ___.          .__
                 }
             }
 
-            Console.WriteLine("Dit was Amsterdam!");
+            Console.Clear();
+            Console.WriteLine(@"
+
+__________                __________               
+\______   \___.__. ____   \______   \___.__. ____  
+ |    |  _<   |  |/ __ \   |    |  _<   |  |/ __ \ 
+ |    |   \\___  \  ___/   |    |   \\___  \  ___/ 
+ |______  // ____|\___  >  |______  // ____|\___  >
+        \/ \/         \/          \/ \/         \/ 
+
+
+            Dit was Amsterdam!");
             Console.WriteLine();
             Nijmegen.EndCurrentGame();
             

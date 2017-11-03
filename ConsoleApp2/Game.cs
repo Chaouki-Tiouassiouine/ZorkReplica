@@ -108,10 +108,10 @@ namespace ConsoleApp2
             }
         }
 
-            private static void Initiliaze()
-            {
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine(@"
+        private static void Initiliaze()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(@"
     -----------------------------------------------------
                     .__                               
     __  _  __ ____ |  |   ____  ____   _____   ____  
@@ -158,13 +158,60 @@ namespace ConsoleApp2
                 ");
 
                 Console.ForegroundColor = ConsoleColor.White;
+                Game.Start();
             }
 
-            else
+            if (answer == "no")
             {
                 Console.WriteLine("Oke, andere x dan ");
                 Console.ReadKey();
                 Environment.Exit(0);
+            }
+
+            else
+            {
+                Console.WriteLine("Hoorde niet wat je zei..");
+                Console.WriteLine();
+                Console.WriteLine("Wil je mee?");
+                string repeatedAnswer = Console.ReadLine();
+
+                if (repeatedAnswer == "no")
+                {
+                    Console.WriteLine("Oke, andere x dan ");
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
+
+                if (repeatedAnswer == "yes")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(@"       
+                ___________                                
+                \__    ___/___ ______ ______   ___________ 
+                  |    | /  _ \\____ \\____ \_/ __ \_  __ \
+                  |    |(  <_> )  |_> >  |_> >  ___/|  | \/
+                  |____| \____/|   __/|   __/ \___  >__|
+                               |__|   |__|        \/   
+                .   *   ..  . *  *
+                       *  * @()OoO()*   o  .
+                           (()*0O0*O()  ___
+                          |\_________/|/ _ \
+                          |  |  |  |  | / | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | | | |
+                          |  |  |  |  | \_| |
+                          |  |  |  |  |\___/  
+                          |\_|__|__|_/|
+                           \_________/
+   
+                ");
+
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Game.Start();
+
+                }
             }
         }
     }

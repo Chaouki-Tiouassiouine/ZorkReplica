@@ -62,9 +62,21 @@ __________________  ___________   _____      _____
                 Game._level+= 2;
             }
 
+
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine();
-            Console.WriteLine("Hoppa! Gaat het nog een beetje? Waar zullen we nu heen?");
+            Console.WriteLine(@"
+
+__________                __________               
+\______   \___.__. ____   \______   \___.__. ____  
+ |    |  _<   |  |/ __ \   |    |  _<   |  |/ __ \ 
+ |    |   \\___  \  ___/   |    |   \\___  \  ___/ 
+ |______  // ____|\___  >  |______  // ____|\___  >
+        \/ \/         \/          \/ \/         \/ 
+
+");
+            Console.WriteLine("Hoppa! Gaat het nog een beetje? Nou dit was Utrecht!");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             string inputCity = Console.ReadLine();

@@ -72,18 +72,21 @@ WELKOM IN CLUB EXTASE!! Tijd voor een leuk spelletje!
                 flag = CheckWin();// calling of check win  
             } while (flag != 1 && flag != -1);// This loof will be run until all cell of the grid is not marked with X and O or some player is not win  
 
-            Console.Clear();// clearing the console  
-            Board();// getting filled board again  
+            Console.Clear();// clearing the console 
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine();
+            Board();// getting filled board again 
+            Console.ForegroundColor = ConsoleColor.White;
 
             if (flag == 1)// if flag value is 1 then some one has win or means who played marked last time which has win  
             {
-                Console.WriteLine("Top! tijd voor een drankje");
+                Console.WriteLine("Top gedaan! tijd voor een drankje");
                 Game._level += 3;
                 Nijmegen.EndCurrentGame();
             }
             else// if flag value is -1 the match will be draw and no one is winner  
             {
-                Console.WriteLine("Uhmm. zullen we gewoon een drankje gaan halen?");
+                Console.WriteLine("Uhmm gelijkspel. zullen we gewoon een drankje gaan halen?");
                 Game._level += 3;
                 Nijmegen.EndCurrentGame();
             }
